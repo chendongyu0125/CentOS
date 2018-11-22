@@ -1,0 +1,11 @@
+step1. Download the ISO file from official CentOS website (https://www.centos.org) or from the mirrors such as aliyun. It seems that the download speed is much faster from the mirror website (https://mirrors.aliyun.com/centos/7.5.1804/).
+
+step2. Create a USB installation disk of CentOS. I write the ISO image into a USB disk using UltraISO, setting USB bootable. 
+
+step3. Set Thinkpad. Press F1 to enter the BIOS setting mode. Set the Boot Mode as "UEFI" and USB HDD as BOOT #1 disk. 
+
+step4. Start Installation. Choose the menu of "Install CentOS 7", press "e" to enter the menu edit mode. Change the values of "stage2": delete all label values, chage it into "stage2=hd:/dev/sdc4". That's because I have two hard discks in my thinkpad computer and my USB Disk is displayed as sdc and the partition is sdc4. It's very important!!!  If I only have one disk, then the setting might change into "stage2=hd:/dev/sdb4". The press "Ctl+x" to continue installation.
+
+step5. After Installation. Using the USB installation disk to enter the rescue mode. Don't forget to change the value of stage2 as what specified in step4. (1)#> chroot /mnt/sysimage        (2) #> mount /dev/sda1 /mnt             (3) #> cd /mnt/EFI      (4) #> cp -R centOS/* BOOT/   (5) reboot
+
+Then enjoy your CentOS!!!
