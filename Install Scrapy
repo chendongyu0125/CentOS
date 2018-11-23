@@ -1,0 +1,26 @@
+step 1. install python3
+    在安装python之前，先安装其他程序，以确保pip3也能自动安装
+    # yum install python34-devel epel-release libxslt-devel libxml2-devel openssl-devel
+    # yum groupinstall development tools
+    # wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz
+    #./configure --prefix=/usr/local/python3
+    #make
+    #make install
+    
+    
+step 2. make soft link.
+  #ln -s /usr/local/python/bin/python3 /usr/bin/python3 #注意不要改动原来的软连接（usr/bin/python），因为很多程序都是由python2.7写的，改动此软连接可能产生很多错误，例如yum无法工作。
+  #ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
+  #pip3 install --upgrade pip #升级pip3
+  
+  
+step 3. pip3 install Scrapy
+  安装Scrapy之前，要先安装twist，否则会报错。
+  # wget https://twistedmatrix.com/Releases/Twisted/17.1/Twisted-17.1.0.tar.bz2
+  # tar -jxvf Twisted-17.1.0.tar.bz2
+  # cd Twisted-17.1.0
+  # python3 setup.py install
+  # pip3 install Scrapy
+  
+  
+ 安装成功！
