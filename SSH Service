@@ -1,0 +1,21 @@
+step1： 修改SSH 服务配置文件位置
+vi /etc/ssh/sshd_config
+
+#	修改配置
+PasswordAuthentication yes
+PermitRootLogin yes
+
+#	启动SSH 服务
+#sevice ssh start/stop/status #在centos模式下不能用
+sudo service sshd start
+
+# 查看程序是否启动
+# ps -e | grep sshd
+
+others
+
+安装SSH：yum install ssh
+启动SSH： service sshd start
+设置开机运行： chkconfig sshd on
+
+ 
