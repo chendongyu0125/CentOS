@@ -1,0 +1,10 @@
+第一步：安装Rstudio server
+#> sudo wget https://download2.rstudio.org/rstudio-server-rhel-1.1.463-x86_64.rpm
+#> sudo yum install --nogpgcheck rstudio-server-rhel-1.1.463-x86_64.rpm
+
+第二步：设置CentOS的防火墙，开启端口8787
+#> sudo firewall-cmd --zone=public --add-port=8787/tcp --permanent #端口不开启，远程就无法访问
+
+第三步：设置账户
+利用已有linux账号密码登录
+
