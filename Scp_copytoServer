@@ -1,0 +1,2 @@
+将本地文件上传至linux服务器
+采用如下命令：scp -r *.csv username@192.168.0.90:/~/WDZJ/data/ #将所有当前目录下的csv文件上传至服务器（IP地址：192.168.0.90)，目标服务器的目录地址为~/WDZJ/data, 登录用户名为username
