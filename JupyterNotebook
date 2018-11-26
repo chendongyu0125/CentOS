@@ -1,5 +1,10 @@
 第一步，安装Anaconda
+#> wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.1-Linux-x86_64.sh
+#> sh Anaconda3-5.3.1-Linux-x86_64.sh
+(注：如果要在Anaconda中安装Scrapy，只需输入如下命令： #> conda install scrapy)
+
 直接启动jupyter notebook，只能单机本地使用。为了可以远程访问，还需要做如下设置：
+
 第二步：生成配置文件
 #> jupyter notebook --generate-config #会在个人目录下生产如下文件：~/.jupyter/jupyter_notebook_config.py
 第三步：生成密码：
