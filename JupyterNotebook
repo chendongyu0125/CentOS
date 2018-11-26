@@ -1,0 +1,16 @@
+第一步，安装Anaconda
+直接启动jupyter notebook，只能单机本地使用。为了可以远程访问，还需要做如下设置：
+第二步：生成配置文件
+#> jupyter notebook --generate-config #会在个人目录下生产如下文件：~/.jupyter/jupyter_notebook_config.py
+第三步：生成密码：
+#> jupyter notebook password
+输入两次密码，生成~/.jupyter/jupyter_notebook_config.json文件，内含密码加密后的文本
+第四步：修改 jupyter_notebook_config.py文件
+#> vi ~./jupyter/jupyter_notebook_config.py
+
+c.NotebookApp.ip='*' #设置访问notebook的ip，*表示所有IP，这里设置ip为都可访问  
+c.NotebookApp.password = u'sha1:5df252f58b7f:bf65d53125bb36c085162b3780377f66d73972d1' #填写刚刚生成的密文  
+c.NotebookApp.open_browser = False # 禁止notebook启动时自动打开浏览器(在linux服务器一般都是ssh命令行访问，没有图形界面的。所以，启动也没啥用)  
+c.NotebookApp.port =8888 #指定访问的端口，默认是8888。  
+
+重新启动 jupyter notebook
