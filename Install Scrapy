@@ -24,3 +24,4 @@ step 3. pip3 install Scrapy
   
   
  安装成功！
+注：如果目录不在PATH中，可能找不到执行路径，可以在.bash_profile中添加路径，或者建立软连接： ln -s /usr/local/python3/bin/scrapy /usr/bin/scrapy
