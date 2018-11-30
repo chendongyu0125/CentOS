@@ -14,4 +14,12 @@
                    export $PATH #这行代码应该原来就有
                 #> source .bash_profile
 第四部：启动项目：
- #>python managers
+ #>python3 managers.py runserver 0.0.0.0:8000
+ 一些问题：
+  （1）服务器启动时提示数据文件无法访问，则需要修改文件夹的权限：
+   #> chmod 777 HelloWorld
+  （2）启动成功，但是外部无法访问，可能是防火墙没有开启8000端口的访问。如何设置防火墙参见“防火墙”设置
+  （3）系统提示外部无权访问，需要修改 settings.py
+          #> cd HelloWord
+          #> vim settings.py
+              ALLOWED_HOSTS = [] ==>  ALLOWED_HOSTS = ['*']
