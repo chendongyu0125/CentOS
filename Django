@@ -1,0 +1,17 @@
+这是一个web框架，方便地搭建个人网站
+第一步：安装好Python
+第二步：安装Django
+  #> pip3 install Django #安装在与pip3相对应的python目录
+  or
+  #> conda install Django #安装在与anaconda相对应的python目录
+第三步：检查django是否能够启动：
+  #> django-admin startproject HelloWorld
+  如果提示django-admin: command not found，可能是路径设置问题，系统找不到python的bin所在的目录。
+  有两种解决方案：（1）设置软连接，例如：link -s /home/username/anaconda/python/bin/django-admin /usr/local/bin/django-admin
+                (2)修改.bash_profile文件，将路径/home/usrname/anaconda/python/bin/添加到PATH中，
+                #> vim .bash_profile
+                   $PATH=$PATH:/home/username/anaconda/python/lib;
+                   export $PATH #这行代码应该原来就有
+                #> source .bash_profile
+第四部：启动项目：
+ #>python managers
