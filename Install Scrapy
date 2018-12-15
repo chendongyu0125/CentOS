@@ -25,3 +25,13 @@ step 3. pip3 install Scrapy
   
  安装成功！
 注：如果目录不在PATH中，可能找不到执行路径，可以在.bash_profile中添加路径，或者建立软连接： ln -s /usr/local/python3/bin/scrapy /usr/bin/scrapy
+
+
+如果要远程执行爬取指令，即使终端关闭依然执行，可以使用如下语句：
+nohup ~/anaconda3/bin/scrapy crawl PlatformDetails >scrapy_wdzj.log 2>&1 &
+
+本机安装有两个scrapy，路径分别如下：
+$ whereis scrapy
+scrapy: /usr/bin/scrapy /home/chendongyu/anaconda3/bin/scrapy
+默认情况下，会调用默认python，版本为2.7
+如果想使用3.6以上版本的python，需要用到第二个，所以使用如下命令：~/anaconda3/bin/scrapy
