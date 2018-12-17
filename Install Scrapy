@@ -35,3 +35,6 @@ $ whereis scrapy
 scrapy: /usr/bin/scrapy /home/chendongyu/anaconda3/bin/scrapy
 默认情况下，会调用默认python，版本为2.7
 如果想使用3.6以上版本的python，需要用到第二个，所以使用如下命令：~/anaconda3/bin/scrapy
+
+例如执行如下程序
+nohup ~/anaconda3/bin/scrapy crawl PlatformDetails 2>&1 output20181217.log
