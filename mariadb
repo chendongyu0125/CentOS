@@ -2,3 +2,7 @@ CentOS机器
 mariadb的账号
 用户名：guest
 密码：123456
+
+查看默认数据文件的路径：
+select @@datadir;
+/var/lib/mysql
