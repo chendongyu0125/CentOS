@@ -1,4 +1,4 @@
 关闭终端后仍然能够执行程序的方法：
-nohup scrapy crawl PlatformDetails 2>&1 output20181217.log
+nohup scrapy crawl PlatformDetails -s LOG_FILE=platform.log 2>&1 output20181217.log
 执行的程序是：scrapy crawl PlatformDetails
 将所有结果重定向输出到output20181217.log文件
