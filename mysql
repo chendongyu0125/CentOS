@@ -1,0 +1,36 @@
+mysql断电后无法重启：删除/var/lib/mysql/目录下的所有文件，然后重启。
+
+把别处的数据文件拷贝到/var/lib/mysql目录下，可能存在没有访问权限的问题，解决方法如下：
+（1）把数据文件的用户及所在的组改为mysql
+（2）把数据文件的读取权限改为660 （-rw-rw----）
+(3) 把数据文件所在的文件夹的用户及所在组改为mysql
+（4）把数据文件所在的文件夹的权限改为700（-rwx------）
+(5)修改防火墙设置
+chown -R mysql:mysql /var/lib/mysql/dbname
+chmod -R 660 /var/lib/mysql/dbname
+chown mysql:mysql /var/lib/mysql/dbname
+chmod 700 /var/lib/mysql/dbname
+chcon -R  -t mysqld_db_t /var/lib/mysql/dbname/*
+
+以下是参考文档：
+This is an old topic, but I didn't find anything that worked for me so for anyone running into the same problem, yet the above file permission suggestions still don't change the "Can't find file" errors, here's what worked for me and my particular issue.
+
+I was doing a rescue from one CentOS server to another using a recovery image, which had a different OS than the original OS and the original filesystem was mounted on a temporary dir. While I had access to the original /var/lib/mysql files, I didn't have access to the mysql admin or dump utilities, which requires the server to be running anyway (it's not automatically included when doing a recovery from a read-only image). Backups were a week old and I wanted to see if I could get the most recent data possible.
+
+Changing the standard file permissions on these still kept giving "Can't find file" for nearly all of the database tables, however I could see that the tables were there. Turns out it was related to SELinux context on the files I had moved over using rysnc. All of the rescued dirs and files looked like this:
+
+$ ls -alZ
+drwx------. mysql mysql unconfined_u:object_r:admin_home_t:s0 somedb_dev
+drwx------. mysql mysql unconfined_u:object_r:admin_home_t:s0 somedb_local
+drwx------. mysql mysql unconfined_u:object_r:admin_home_t:s0 somedb_production
+drwx------. mysql mysql unconfined_u:object_r:admin_home_t:s0 somedb_staging
+The -Z flag notes the security context of files and dirs. Notice the unconfined_u and admin_home_t context. These are different from what they should be:
+
+drwx------. mysql mysql system_u:object_r:mysqld_db_t:s0 mysql
+Changing these database files to the proper context solved the problem and gave proper access to mysqld using the chcon command:
+
+$ chcon -R -u system_u -t mysqld_db_t somedb_*
+This changed all my custom databases to the proper SELinux context and the files could now be recognized by mysqld. I recommend running the chcon commad while the database server is not active, just as a precaution.
+
+Hope that helps someone running into the same problem I had! Of course, you can turn off SELinux temporarily to test if this is fact this issue, but I didn't want turning off SELinux as a permanent solution.
+
