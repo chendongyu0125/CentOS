@@ -34,3 +34,17 @@ This changed all my custom databases to the proper SELinux context and the files
 
 Hope that helps someone running into the same problem I had! Of course, you can turn off SELinux temporarily to test if this is fact this issue, but I didn't want turning off SELinux as a permanent solution.
 
+
+上传大文档失败的问题；
+
+show variables like '%max%';
+set global max_allowed_packet=166666m;
+
+
+max_allowed_packet=166666m 这个是限制文件大小的由于要上传6个G所以改成1111111M 额应该够了吧 
+wait_timeout=288000000 等待超时。。看事改吧，我在后面加了好几个0.。。 
+interactive_timeout= 288000000运行超时。。。。看事改吧，我在后面加了好几个0.。。 
+
+————————————————
+版权声明：本文为CSDN博主「codeing_doc」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/u010391342/article/details/78767972
