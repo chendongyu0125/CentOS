@@ -1,3 +1,32 @@
+服务器意外断电后启动mysql数据库报错：
+
+Another MySQL daemon already running withthe same unix socket.
+
+
+
+本地登录mysql数据库提示：
+
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (111)
+
+原因：
+
+mysql没有正常停止，机器重启后mysql.sock一直存在，但机器重启后mysql实际上为启动的，
+
+所以呢需要把/var/lib/mysql 下的mysql.sock文件给删掉，然后就可以启动了
+————————————————
+版权声明：本文为CSDN博主「小小程序员1986」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/jethai/article/details/52345231
+
+
+
+
+
+
+
+
+
+
+
 mysql断电后无法重启：删除/var/lib/mysql/目录下的所有文件，然后重启。
 
 把别处的数据文件拷贝到/var/lib/mysql目录下，可能存在没有访问权限的问题，解决方法如下：
