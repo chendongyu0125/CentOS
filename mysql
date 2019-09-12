@@ -1,3 +1,10 @@
+
+mason19941215
+Bbs1	
+不建议将表分开导入，可以开启mysql的非严格模式！set sql_mode="STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION";这样mysql就不会报错了！
+
+
+
 服务器意外断电后启动mysql数据库报错：
 
 Another MySQL daemon already running withthe same unix socket.
