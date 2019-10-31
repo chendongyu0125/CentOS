@@ -26,6 +26,24 @@ Bbs1
 Another MySQL daemon already running withthe same unix socket.
 
 
+I had a similar issue. In my case after importing the users table from an old server and upon restarting mysql, I couldn't start it again.
+
+I fixed my user table by:
+
+1- Editing my.cnf and adding:
+
+[mysqld]
+
+skip-grant-tables
+
+2- #service mysql start
+
+3- #mysql_upgrade
+
+4- #service mysql restart
+
+Don't forget to edit your my.cnf again and remove skip-grant-tables
+
 
 本地登录mysql数据库提示：
 
