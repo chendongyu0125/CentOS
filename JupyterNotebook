@@ -22,4 +22,5 @@ c.NotebookApp.port =8888 #指定访问的端口，默认是8888。  
 
 
 nohup jupyter notebook --config=/home/chendongyu/.jupyter/jupyter_notebook_config_user2.py &
+nohup jupyter notebook --config=/home/chendongyu/.jupyter/jupyter_notebook_config_user2.py --allow-root &
 
