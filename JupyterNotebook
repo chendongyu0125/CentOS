@@ -19,3 +19,7 @@ c.NotebookApp.open_browser = False # 禁止notebook启动时自动打开浏�
 c.NotebookApp.port =8888 #指定访问的端口，默认是8888。  
 
 重新启动 jupyter notebook
+
+
+nohup jupyter notebook --config=/home/chendongyu/.jupyter/jupyter_notebook_config_user2.py &
+
