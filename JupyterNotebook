@@ -34,3 +34,9 @@ nohup jupyter notebook --config=/home/chendongyu/.jupyter/jupyter_notebook_confi
 \usepackage{ctex}
 \setmainfont{华文宋体}
 第三步，在latex编辑器中用XeLaTex排版 （注： XeLaTex是LaTex的升级版）
+
+
+***********
+数学公式
+tex 文件通过XeLaText 生成pdf需要主要的一些问题：
+公式 由 \[ 开头，\]结尾；标记符中间需要有空格
