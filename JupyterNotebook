@@ -39,4 +39,5 @@ nohup jupyter notebook --config=/home/chendongyu/.jupyter/jupyter_notebook_confi
 ***********
 数学公式
 tex 文件通过XeLaText 生成pdf需要主要的一些问题：
-公式 由 \[ 开头，\]结尾；标记符中间需要有空格
+行间公式 由 \[ 开头，\]结尾；标记符中间需要有空格
+行内公式 由 \( 开头， \)结尾， 标记符中间要有空格
