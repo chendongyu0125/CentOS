@@ -24,3 +24,13 @@ c.NotebookApp.port =8888 #指定访问的端口，默认是8888。  
 nohup jupyter notebook --config=/home/chendongyu/.jupyter/jupyter_notebook_config_user2.py &
 nohup jupyter notebook --config=/home/chendongyu/.jupyter/jupyter_notebook_config_user2.py --allow-root &
 
+
+***********
+
+**如何将jupyter notebook的内容生成pdf文件**
+第一步，将文件另存为.tex文件
+第二步，打开tex文件，在\documentclass{article}语句下面另起一行，加入如下语句
+\usepackage{fontspec, xunicode, xltxtra}
+\usepackage{ctex}
+\setmainfont{华文宋体}
+第三步，在latex编辑器中用XeLaTex排版 （注： XeLaTex是LaTex的升级版）
