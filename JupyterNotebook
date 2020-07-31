@@ -34,6 +34,7 @@ nohup jupyter notebook --config=/home/chendongyu/.jupyter/jupyter_notebook_confi
 \usepackage{ctex}
 \setmainfont{华文宋体}
 第三步，在latex编辑器中用XeLaTex排版 （注： XeLaTex是LaTex的升级版）
+在\title下面加\author{陈冬宇}
 
 
 ***********
