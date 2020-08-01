@@ -42,3 +42,11 @@ nohup jupyter notebook --config=/home/chendongyu/.jupyter/jupyter_notebook_confi
 tex 文件通过XeLaText 生成pdf需要主要的一些问题：
 行间公式 由 \[ 开头，\]结尾；标记符中间需要有空格; 或者使用 $ $ 来标记
 行内公式 由 \( 开头， \)结尾， 标记符中间要有空格； 或者使用 $$   $$来标记
+
+
+********
+如何用jupyter notebook制作slides并且可以在演示的时候执行程序
+>$ pip install RISE
+>$ jupyter-nbextension install rise --py --sys-prefix
+>$ jupyter-nbextension enable rise --py --sys-prefix
+重启jupyter notebook
