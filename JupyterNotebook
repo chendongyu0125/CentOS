@@ -36,6 +36,9 @@ nohup jupyter notebook --config=/home/chendongyu/.jupyter/jupyter_notebook_confi
 第三步，在latex编辑器中用XeLaTex排版 （注： XeLaTex是LaTex的升级版）
 在\title下面加\author{陈冬宇}
 
+或者直接修改模板文件articlx
+
+\documentclass{ctex}
 
 ***********
 数学公式
@@ -50,3 +53,17 @@ tex 文件通过XeLaText 生成pdf需要主要的一些问题：
 >$ jupyter-nbextension install rise --py --sys-prefix
 >$ jupyter-nbextension enable rise --py --sys-prefix
 重启jupyter notebook
+
+
+********
+安装R 内核
+(1) 在R环境下安装devtools
+>>> install.packages("devtools", dependencies=T)
+>>> library(devtools)
+(2)安装kernel并注册
+>>> devtools::install_github("IRkernel/IRkernel")
+(3)在R中注册激活R kernel
+>>> IRkernel::installspec()
+如果要显示更多信息
+IRkernel::installspec(user=False) 安装在系统目录下，不是在个人用户目录下
+
