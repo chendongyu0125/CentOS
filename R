@@ -1,0 +1,12 @@
+查看当前R的安装路径
+>>> .libPaths()
+
+修改repo镜像源
+
+>>> file.edit(".Rprofile")
+打开.Rprofile文件，在里面添加新的内容
+options(digits=3)
+options(repos="http://mirrors.ustc.edu.cn/CRAN/")
+
+
+
