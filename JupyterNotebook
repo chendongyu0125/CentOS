@@ -67,3 +67,10 @@ tex 文件通过XeLaText 生成pdf需要主要的一些问题：
 如果要显示更多信息
 IRkernel::installspec(user=False) 安装在系统目录下，不是在个人用户目录下
 
+**********
+安装stata 内核
+Stata Kernal
+在 Mac 的 终端 / Windows 里的 cmd 里输入：
+
+pip3 install stata_kernel
+python -m stata_kernel.install
